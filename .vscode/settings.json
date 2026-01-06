@@ -1,14 +1,14 @@
 {
   "latex-workshop.latex.rootFile.useSubFile": false,
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.outDir": "/Users/filippo/Documents/Lab/Research-Proposal-RD/build",
+  "latex-workshop.latex.outDir": "/Users/filippo/Documents/Lab/Research-Proposal-NEW/build",
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
       "command": "latexmk",
       "args": [
         "-xelatex",
-        "-output-directory=/Users/filippo/Documents/Lab/Research-Proposal-RD/build",
+        "-output-directory=//Users/filippo/Documents/Lab/Research-Proposal-NEW/build",
         "-interaction=nonstopmode",
         "-synctex=1",
         "%DOC%"

@@ -1,3 +1,13 @@
+# Output dir
+/build/
+
+# BibLaTeX / biber
+*.bcf
+*.run.xml
+
+# XeLaTeX
+*.xdv
+
 # macOS
 .DS_Store
 

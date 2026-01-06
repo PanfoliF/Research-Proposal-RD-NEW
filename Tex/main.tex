@@ -1,7 +1,7 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,12pt]{article}
 
 \usepackage{stile-generale}
-\addbibresource{/Users/filippo/Documents/Lab/Research-Proposal-RD/Formal_Models.bib}
+\addbibresource{/Users/filippo/Documents/Lab/Research-Proposal-RD/Brazil.bib}
 
 %------- Metadati -------
 \renewcommand{\Uni}{University of Mannheim}
@@ -22,7 +22,7 @@
  %------------------------
 
 \begin{document}
-% alias compilepaper='latexmk -xelatex -output-directory="/Users/filippo/Documents/Lab/Research-Proposal-RD/build" Tex/main.tex'
+% alias compilepaper='latexmk -xelatex -output-directory="/Users/filippo/Documents/Lab/Research-Proposal-NEW/build" Tex/main.tex'
 
 %------- Title Page -------
 % La numerazione "conta" dalla title page
@@ -33,12 +33,13 @@
 \clearpage
 % Da qui in poi: numeri visibili e continui (Abstract = pagina 2)
 \pagestyle{fancy}
+\doublespacing
 \justify
 
 %------- Document -------
 \input{Tex/00_Abstract.tex}
 \newpage
-\input{Tex/01_Research_Proposal.tex}
+\input{Tex/01_Intro.tex}
 \input{Tex/02_Methodology.tex}
 \input{Tex/03_Data.tex}
 \input{Tex/04_Conclusion.tex}
