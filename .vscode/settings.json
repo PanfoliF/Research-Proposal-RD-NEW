@@ -1,0 +1,27 @@
+{
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.outDir": "/Users/filippo/Documents/Lab/Research-Proposal-RD/build",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-output-directory=/Users/filippo/Documents/Lab/Research-Proposal-RD/build",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk ➜ build/",
+      "tools": ["latexmk"]
+    }
+  ],
+  "latex-workshop.linting.lacheck.enabled": true,
+  "latex-workshop.linting.run": "onType",
+  "latex-workshop.mathpreviewpanel.cursor.enabled": true
+}
