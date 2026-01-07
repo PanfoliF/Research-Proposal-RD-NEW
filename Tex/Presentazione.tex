@@ -1,0 +1,94 @@
+\documentclass[10pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+
+
+\setbeamersize{text margin left=4em, text margin right=4em}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\title[Teacher Quality]{Teacher Quality \& Learning Outcomes}
+\author{Filippo Panfoli 2202955}
+\date{\today}
+
+\begin{document}
+
+%------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+%------------------------------------------------------
+
+%------------------------------------------------------
+\begin{frame}{Introduction and Context}
+This project uses the Brazilian School Panel to study how teacher quality shapes student learning and school progression.
+
+\vspace*{1em}
+My goal is to distinguish two channels: standardized test performance (\textbf{extensive margin}) and grade progression outcomes (\textbf{intensive margin}).
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}{Extensive Margin: Teacher Quality $\rightarrow$ Test Scores}
+
+\[
+Y^{score}_{smt} =
+\beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
+\gamma X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
+\]
+
+\vspace*{1em}
+Teachers Quality is measured as number of students per class \textit{or} as teachers education.
+Identification relies on municipal FE, state FE and year FE\@. This strategy isolates the effect of teacher quality on students test scores.
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}{Intensive Margin: Teacher Quality $\rightarrow$ Failure / Approval}
+
+\[
+Y^{failure}_{smt} =
+\beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
+\gamma' X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
+\]
+
+\vspace*{1em}
+Teachers Quality is measured as number of students per class \textit{or} as teachers education.
+Identification relies on municipal FE, state FE and year FE\@. This strategy isolates the effect of teacher quality on rate of test failures.
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}{Main Hypotheses}
+  \textit{Hp1: Teacher quality $\Uparrow$ $\Rightarrow$ median student performance $\Uparrow$}
+  
+  \vspace*{1em}
+  \textit{Hp2: Teacher quality $\Uparrow$ $\Rightarrow$ worst students performance $\Uparrow$}
+
+  \vspace*{1em}
+  Comparing extensive and intensive margin helps determine which mechanisms affect the test score.
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}{Potential Confounders}
+Teacher quality and outcomes may be influenced by school type, urban \textit{vs} rural context, infrastructure, school size, local socioeconomic conditions, or previous performance.
+\vspace*{1em}
+
+\end{frame}
+
+%------------------------------------------------------
+
+\begin{frame}{Identification Strategy}
+I plan to use an RDD to identify the causal effect.
+\end{frame}
+
+
+
+%------------------------------------------------------
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large {\textbf{Thank you!}}}
+\end{frame}
+%------------------------------------------------------
+
+\end{document}
