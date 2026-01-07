@@ -1,10 +1,5 @@
 % !TeX root = ../Tex/main.tex
-
-
 \section{Methodology}
-
-\parencite{carneiroPOVERTYPROFILEFUNCTIONAL}
-
 % \begin{figure}[htpb] %  figure placement: here, top, bottom, or page
 %     \centering
 %     \includegraphics[width=1\linewidth]{Tex/Brauninger.jpg}
@@ -17,3 +12,42 @@
     \captionof{figure}{\textit{Causal DAG.}}
     \label{fig:foto}
 \end{center}
+
+\textit{To establish causality} between the dependent and independent variables, the analysis will employ causal inference techniques. As a possible solution to the identification problem the study will provide results from a Difference-in-Difference. This technique is able to isolate the effect produced by the introduction of the laws in the  variables that approximate education quality.
+Nonetheless, without appropriate control variables no identification strategy is reliable. Following best practices of the political science field, only a deep analysis of the literature will provide for suitable control variables.
+
+\subsection{Extensive Margin}
+The first of the two regression presented in the paragraph looks at the extensive margin. Therefore, it investigates the relationship between teachers quality and test scores. The equation used is the following:
+\[
+Y^{score}_{smt} =
+\beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
+\gamma X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
+\]
+\textit{Teachers quality} is measured as number of students per class \textit{or} as teachers education.
+
+Identification also relies on:
+\textit{municipal FE}: this is a way to control for possible unobserved variables that might bias the analysis. To the eyes of statistitians this is a mere intercept that captures the mean value for a town.
+
+\textit{state FE}: the same concern we had for the municipal level, motivates the use of FE at the state level. However, concern comes along with a great fortune. 
+\textcite[chap.~2, p.~462]{cunninghamCausalInferenceMixtape2021} says: "I have a bumper sticker on my car that says "I love Federalism (for the natural experiments)". [\dots] United States is a never-ending laboratory. Because of state federalism, each US state has been given considerable discretion to govern itself with policies and reforms. Yet, because it is a union of states, US researchers have access to many data sets that have been harmonized across states, making it even more useful for causal inference."
+
+and \textit{year FE\@}: since our dataset \parencite{hubertsBrazilianEducationPanel2025} offers several years, we will exploit time variation too. The methodological solution to make use of panel data is again FE\@. In fact, thanks to this instrument, we are able to isolate the variation among years and discard the magnitude of variation in a signle year.
+
+This strategy isolates the effect of teacher quality on students test scores, which is commonly refered to as \textit{outcome variable}.
+
+\textit{Controls:} The vector of controls is \small{\(X_{smt}\)}, while \small{\(\gamma\)} is the vector of coefficients. It represents the effects of control variables on our outcome variable.
+
+%------------------------------------------------------
+
+\subsection{Intensive Margin}
+The second regression presented in the paragraph looks at the intensive margin. Therefore, it investigates the relationship between teachers quality and rates of failure. The equation used is the following:
+\[
+Y^{failure}_{smt} =
+\beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
+\gamma' X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
+\]
+Teachers Quality is measured as number of students per class \textit{or} as teachers education.
+
+Again, identification relies on municipal FE, state FE and year FE\@.
+
+The selected controls are:
