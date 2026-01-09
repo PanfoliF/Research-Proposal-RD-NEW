@@ -15,7 +15,7 @@
     \label{fig:kellstedt}
 \end{center}
 
-Figure one illustrates the path from causal theory to an empirically testable hypothesis, it clearly shows the difference between what we mean and what we can measure. At the conceptual level, a causal model theorises that an independent concept influences a dependent concept--an abstract claim about how the world works. Yet concepts are not directly observable, this means that empirical analysis requires operationalization. This process can be thought as the translation of each concept into measurable indicators. The dashed vertical arrows capture this translation, emphasizing that measurement is not automatic but a set of choices that must be theoretically justified. Once concepts are operationalized, the researcher can formulate a hypothesis linking the measured independent variable to the measured dependent variable, represented by the lower horizontal arrow. The figure supports measurement validity: weak indicators can lead to precise estimates of the wrong relationship.
+Figure one illustrates the path from causal theory to an empirically testable hypothesis and it clearly shows the difference between what we mean and what we can measure. At the conceptual level, a causal model theorises that an independent concept influences a dependent concept--an abstract claim about how the world works. Yet concepts are not directly observable, this means that empirical analysis requires operationalization. This process can be thought as the translation of each concept into measurable indicators. The dashed vertical arrows capture this translation, emphasizing that measurement is not automatic but a set of choices that must be theoretically justified. Once concepts are operationalized, the researcher can formulate a hypothesis linking the measured independent variable to the measured dependent variable, represented by the lower horizontal arrow. The figure supports measurement validity: weak indicators can lead to precise estimates of the wrong relationship.
 In this proposal, we operationalise good education through test score (or failure rates) and teaching quality through techers education.
 
 \subsection{Data Generating Process}
@@ -31,15 +31,7 @@ The difficulty is that we observe the DGP only once, under the conditions that a
 \end{center}
 Figure 2 presents a directed acyclic graph (DAG) that summarizes the study's theoretical framework and makes the intended causal interpretation of the empirical model explicit. In a DAG, each node represents a variable of interest and each arrow denotes a hypothesized direct causal relationship, with the direction indicating the assumed flow of influence. Here, the graph encodes the idea that teachers' education may affect students' test scores both directly and indirectly through school infrastructure and facilities.
 
-<<<<<<< HEAD
 A key purpose of drawing a DAG is to clarify where confounding variables may arise. A confounder is a variable that influences both the explanatory variable and the outcome, thereby creating a non-causal association that can bias naïve regression estimates. In this setting, infrastructure and facilities can act as a confounder for the relationship between teachers' education and test scores if, for instance, better-resourced schools both attract more educated teachers and produce higher achievement. To isolate the causal effect of teacher education on test outcomes, the empirical specification therefore includes relevant confounders as controls, consistent with the adjustment set implied by the DAG. 
-=======
-\begin{center}
-    \includegraphics[width=1\textwidth]{Tex/Kellstedt.jpg}
-    \captionof{figure}{\textit{Figure 1.2 From theory to hypothesis \parencite[chap.~1]{kellstedtFundamentalsPoliticalScience2018}}}
-    \label{fig:kellstedt}
-\end{center}
->>>>>>> 217951c006743ebc4550e4cb6285e2383704a500
 
 \subsection{Regressions}
 \textit{To establish causality} between the dependent and independent variables, the analysis will employ causal inference techniques. As a possible solution to the identification problem the study will provide results from a Difference-in-Difference. This technique is able to isolate the effect produced by the introduction of the laws in the  variables that approximate education quality.
@@ -52,7 +44,7 @@ Y^{score}_{smt} =
 \beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
 \gamma X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
 \]
-\textit{Teachers quality} is measured as number of students per class \textit{or} as teachers education.
+\textit{Teachers quality} is measured as teachers education.
 
 \vspace*{1em}
 Identification also relies on:
@@ -99,9 +91,9 @@ Y^{failure}_{smt} =
 \beta_0 + \beta_1 TQ_{smt} + \beta_2 INFRA_{smt} +
 \gamma' X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
 \]
-Teachers Quality is measured as number of students per class \textit{or} as teachers education. Again, identification relies on municipal FE, state FE and year FE\@.
+Teachers Quality is measured teachers education. Again, identification relies on municipal FE, state FE and year FE\@. This regression uses the same controls as above.
 
-\section{Difference in Difference}
+%\section{Difference in Difference}
 
 
 
