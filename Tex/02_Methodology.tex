@@ -10,21 +10,34 @@
 % \end{figure}
 
 \begin{center}
+    \includegraphics[width=1\textwidth]{Tex/Kellstedt.jpg}
+    \captionof{figure}{\textit{Figure 1.2 From theory to hypothesis \parencite[chap.~1]{kellstedtFundamentalsPoliticalScience2018}}}
+    \label{fig:kellstedt}
+\end{center}
+
+Figure one illustrates the path from causal theory to an empirically testable hypothesis, it clearly shows the difference between what we mean and what we can measure. At the conceptual level, a causal model theorises that an independent concept influences a dependent concept--an abstract claim about how the world works. Yet concepts are not directly observable, this means that empirical analysis requires operationalization. This process can be thought as the translation of each concept into measurable indicators. The dashed vertical arrows capture this translation, emphasizing that measurement is not automatic but a set of choices that must be theoretically justified. Once concepts are operationalized, the researcher can formulate a hypothesis linking the measured independent variable to the measured dependent variable, represented by the lower horizontal arrow. The figure supports measurement validity: weak indicators can lead to precise estimates of the wrong relationship.
+In this proposal, we operationalise good education through test score (or failure rates) and teaching quality through techers education.
+
+\subsection{Data Generating Process}
+Causal inference is fundamentally about the data-generating process (DGP): the (usually unobserved) mechanism that maps underlying conditions, choices, and shocks into the data we observe. In causal questions, we are not merely interested in how variables move together in the realized dataset; we want to know how outcomes would change if we were to intervene-if the DGP were run under a different input, such as a different policy, treatment, or institutional setting.
+
+The difficulty is that we observe the DGP only once, under the conditions that actually occurred. The outcomes generated under alternative conditions--the counterfactual realizations of the same DGP--are not in the data. A causal model is therefore essential because it provides an explicit representation of how the DGP operates and, crucially, what is assumed to remain invariant when we imagine an intervention. Under those assumptions, causal inference uses observed data to learn about the parameters or structural relationships of the DGP, and then leverages them to predict what the outcome would have been in the counterfactual scenario. In this sense, the DGP is central to causal inference because it is the bridge between what we observe and the unobserved "what if" quantities we seek to estimate.
+
+\subsection{DAG}
+\begin{center}
     \includegraphics[width=0.7\textwidth]{Tex/DAG.jpg}
     \captionof{figure}{\textit{Causal DAG.}}
     \label{fig:dag}
 \end{center}
+Figure 2 presents a directed acyclic graph (DAG) that summarizes the study's theoretical framework and makes the intended causal interpretation of the empirical model explicit. In a DAG, each node represents a variable of interest and each arrow denotes a hypothesized direct causal relationship, with the direction indicating the assumed flow of influence. Here, the graph encodes the idea that teachers' education may affect students' test scores both directly and indirectly through school infrastructure and facilities.
 
-\begin{center}
-    \includegraphics[width=1\textwidth]{Tex/Kellstedt.jpg}
-    \captionof{figure}{\textit{Figure 1.2 From theory to hypothesis \parencite{}}}
-    \label{fig:kellstedt}
-\end{center}
+A key purpose of drawing a DAG is to clarify where confounding variables may arise. A confounder is a variable that influences both the explanatory variable and the outcome, thereby creating a non-causal association that can bias naïve regression estimates. In this setting, infrastructure and facilities can act as a confounder for the relationship between teachers' education and test scores if, for instance, better-resourced schools both attract more educated teachers and produce higher achievement. To isolate the causal effect of teacher education on test outcomes, the empirical specification therefore includes relevant confounders as controls, consistent with the adjustment set implied by the DAG. 
 
+\subsection{Regressions}
 \textit{To establish causality} between the dependent and independent variables, the analysis will employ causal inference techniques. As a possible solution to the identification problem the study will provide results from a Difference-in-Difference. This technique is able to isolate the effect produced by the introduction of the laws in the  variables that approximate education quality.
 Nonetheless, without appropriate control variables no identification strategy is reliable. Following best practices of the political science field, only a deep analysis of the literature will provide for suitable control variables.
 
-\subsection{Extensive Margin}
+\subsubsection{Extensive Margin}
 The first of the two regression presented in the paragraph looks at the extensive margin. Therefore, it investigates the relationship between teachers quality and test scores. The equation used is the following:
 \[
 Y^{score}_{smt} =
@@ -45,9 +58,33 @@ Identification also relies on:
 \vspace*{1em}
 This strategy isolates the effect of teachers quality on students test scores, which is commonly refered to as \textit{outcome variable}.
 
-\textit{Controls:} The vector of controls is \small{\(X_{smt}\)}, while \small{\(\gamma\)} is the vector of coefficients. It represents the effects of control variables on our outcome variable. The selected controls are:
+\vspace*{1em}
+\textit{Controls:} The vector of controls is \small{\(X_{smt}\)}, while \small{\(\gamma\)} is the vector of coefficients. It represents the effects of control variables on our outcome variable.
 
-\subsection{Intensive Margin}
+The selected controls are:
+\begin{enumerate}
+    \item School Characteristics \& Size
+    \begin{itemize}
+        \item[-] Functional status: TP\_SITUACAO\_FUNCIONAMENTO, STATUS
+        \item[-]Management type: TP\_DEPENDENCIA, with dummies for federal, state, municipal, private.
+        \item[-]Location: TP\_LOCALIZACAO, URBANA (urban/rural).
+    \end{itemize}
+    \item Infrastructure and Facilities
+        \begin{itemize}
+            \item[Availability of resources: -]Libraries (IN\_BIBLIOTECA), labs (IN\_LABORATORIO\_INFORMATICA, IN\_LABORATORIO\_CIENCIAS), sports field (IN\_QUADRA\_ESPORTES), computers/internet.
+            \item[-] Management type: TP\_DEPENDENCIA, with dummies for federal, state, municipal, private.
+            \item[Utilities:] electricity, water, sewage (both public and general availability).
+            \item[Quantities:] NU\_SALAS\_EXISTENTES, NU\_SALAS\_UTILIZADAS, NU\_COMPUTADOR.
+        \end{itemize}
+    \item Teachers \& Staff
+        \begin{itemize}
+            \item[-]Staff totals: NU\_FUNCIONARIOS, PROFESS, PROFFUNDTOT.
+            \item[-]Teacher education indicators: PCPROFMED, PCPROFSUP, etc.
+            \item[-]Derived metric: EDUCTEACH (average years of teacher education).
+        \end{itemize}
+\end{enumerate}
+
+\subsubsection{Intensive Margin}
 The second regression presented in the paragraph looks at the intensive margin. Therefore, it investigates the relationship between teachers quality and rates of failure. The equation used is the following:
 \[
 Y^{failure}_{smt} =
@@ -55,3 +92,8 @@ Y^{failure}_{smt} =
 \gamma' X_{smt} + \mu_m + \lambda_t + \varepsilon_{smt}
 \]
 Teachers Quality is measured as number of students per class \textit{or} as teachers education. Again, identification relies on municipal FE, state FE and year FE\@.
+
+\section{Difference in Difference}
+
+
+
